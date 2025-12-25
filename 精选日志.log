@@ -1,0 +1,36 @@
+D:\RimworldProject\rwxml-language-server-master\analyzer>npx ts-node run-test.ts
+D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+run-test.ts:25:55 - error TS2339: Property 'getAllTypeInfos' does not exist on type 'TypeInfoMap'.
+
+25     console.log(`Metadata loaded. Found ${typeInfoMap.getAllTypeInfos().length} types.`);
+                                                         ~~~~~~~~~~~~~~~
+run-test.ts:39:51 - error TS18046: 'e' is of type 'unknown'.
+
+39             console.log('Cannot list directory:', e.message);
+                                                     ~
+run-test.ts:30:54 - error TS1005: ',' expected.
+
+30     const xmlPattern = `${TARGET_DIR.replace(/\/g, '/') }/**/*.xml`;
+                                                        ~~~~~~~~~~~~~~~
+run-test.ts:30:69 - error TS1002: Unterminated string literal.
+
+30     const xmlPattern = `${TARGET_DIR.replace(/\/g, '/') }/**/*.xml`;
+
+run-test.ts:31:5 - error TS1005: ',' expected.
+
+31     const xmlFiles = await fg(xmlPattern, { dot: true });
+       ~~~~~
+
+    at createTSError (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:859:12)    at reportTSError (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:863:19)    at getOutput (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1617:30)
+    at node:internal/modules/cjs/loader:1893:10
+    at Object.require.extensions.<computed> [as .ts] (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  diagnosticCodes: [ 2339, 18046, 1005, 1002, 1005 ]
+}

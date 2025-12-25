@@ -5,7 +5,6 @@
 import { ElementType, isTag as isTagRaw } from 'domelementtype'
 import { sortedFindFirst } from '../../utils/arrays'
 import { Range } from '../range'
-import $ from 'cheerio'
 import { TypeInfo } from '../../rimworld-types'
 
 const nodeTypes = new Map<ElementType, number>([

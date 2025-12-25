@@ -4,10 +4,7 @@ import { TypedElement } from './typedElement'
 import { Def } from './def'
 import { FieldInfo } from './fieldInfo'
 import { Document, Element, Text } from '../parser'
-import $ from 'cheerio'
 import { DefReference, DefReferenceType } from './defReference'
-
-$._options.xmlMode = true
 
 export class TypeInfoInjector {
   constructor(private typeInfoMap: TypeInfoMap) { }
@@ -18,7 +15,7 @@ export class TypeInfoInjector {
       defs: [] as Def[],
     }
 
-    const root = $(document).children('Defs').get(0) // possible undefined, but type isn't showing
+    const root = document.children.find(node => node instanceof Element && node.name === 'Defs') as Element | undefined
 
     if (root instanceof Element) {
       if (root && root.name === 'Defs') {
