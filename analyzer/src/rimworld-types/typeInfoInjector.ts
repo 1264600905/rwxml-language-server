@@ -34,12 +34,7 @@ export class TypeInfoInjector {
 
   injectDefType(xmlNode: Element): boolean {
     const elementName = xmlNode.name
-    let defTypeInfo = this.typeInfoMap.getTypeInfoByName(elementName)
-
-    // fallback for unknown Def types
-    if (!defTypeInfo && elementName.endsWith('Def')) {
-      defTypeInfo = this.typeInfoMap.getTypeInfoByName('Verse.Def')
-    }
+    const defTypeInfo = this.typeInfoMap.getTypeInfoByName(elementName)
 
     if (defTypeInfo) {
       this.injectType(xmlNode, defTypeInfo)

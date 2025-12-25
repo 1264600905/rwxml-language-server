@@ -97,6 +97,12 @@ export class TypeInfoMap {
       }
     }
 
+    // Odyssey DLC fallback: handle doubled prefixes like StructureStructureLayoutDef
+    if (name.startsWith('StructureStructure')) {
+      const fixedName = name.substring(9) // remove one 'Structure'
+      return this.getTypeInfoByName(fixedName)
+    }
+
     return null
   }
 
