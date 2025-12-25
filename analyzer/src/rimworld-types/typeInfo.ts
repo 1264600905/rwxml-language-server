@@ -294,11 +294,23 @@ export class TypeInfo {
     }
 
     // Heuristic fallback for QuestGen and other wrapper types:
-    // If field not found in self or base, check generic arguments.
+    // If field not found in self or base, check generic arguments recursively.
     if (this.isGeneric) {
       for (const genArg of this.genericArguments) {
         if (genArg instanceof TypeInfo) {
-          const field = genArg.getField(name, inherited)
+          const field = genArg.getField(name, inherited, includeAlias)
+          if (field) {
+            return field
+          }
+        }
+      }
+    }
+
+    // Heuristic: check interfaces if it's a QuestGen related type
+    if (this.fullName.includes('QuestGen')) {
+      for (const iface of Object.values(this.interfaces)) {
+        if (iface instanceof TypeInfo) {
+          const field = iface.getField(name, inherited, includeAlias)
           if (field) {
             return field
           }

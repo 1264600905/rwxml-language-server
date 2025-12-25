@@ -34,7 +34,12 @@ export class TypeInfoInjector {
 
   injectDefType(xmlNode: Element): boolean {
     const elementName = xmlNode.name
-    const defTypeInfo = this.typeInfoMap.getTypeInfoByName(elementName)
+    let defTypeInfo = this.typeInfoMap.getTypeInfoByName(elementName)
+
+    // fallback for unknown Def types
+    if (!defTypeInfo && elementName.endsWith('Def')) {
+      defTypeInfo = this.typeInfoMap.getTypeInfoByName('Verse.Def')
+    }
 
     if (defTypeInfo) {
       this.injectType(xmlNode, defTypeInfo)
@@ -120,12 +125,10 @@ export class TypeInfoInjector {
       } else if (childNode.tagName === 'li') {
         // heuristic: for li nodes that doesn't matched any field, inject parent type.
         this.injectType(childNode, typeInfo)
-      } else if (childNode.tagName === 'thing' && typeInfo.isListStructured()) {
-        // special case for <thing> in lists
-        const enumType = typeInfo.getEnumerableType()
-        if (enumType) {
-          this.injectType(childNode, enumType)
-        }
+      } else if (childNode.tagName === 'thing' || childNode.tagName === 'points' || childNode.tagName === 'tag' || childNode.tagName === 'chance') {
+        // Heuristic: allow specific 'wrapper' tags to inherit the current type if no field matches.
+        // This is common in QuestGen and Bossgroups where metadata is slightly off.
+        this.injectType(childNode, typeInfo)
       }
     })
   }
