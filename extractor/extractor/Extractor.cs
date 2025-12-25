@@ -121,23 +121,33 @@ namespace extractor
                 var fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
                 foreach (var fieldInfo in fields)
                 {
-                    var fieldType = fieldInfo.FieldType;
                     var fieldName = fieldInfo.Name;
+                    Type fieldType = null;
+
+                    try
+                    {
+                        fieldType = fieldInfo.FieldType;
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warn($"Failed to get FieldType for field '{fieldName}' in type '{type.FullName}': {ex.Message}");
+                        continue;
+                    }
 
                     if (typeDict.ContainsKey(fieldType))
                     {
                         continue;
                     }
 
-                    Exception ex = null;
-                    if (TryNewRawTypeInfo(fieldType, out RawTypeInfo value, out ex))
+                    Exception ex2 = null;
+                    if (TryNewRawTypeInfo(fieldType, out RawTypeInfo value, out ex2))
                     {
                         typeDict.Add(fieldType, value);
                         types.Enqueue(fieldType);
                     }
                     else
                     {
-                        Log.Warn(ex.ToString());
+                        Log.Warn(ex2.ToString());
                     }
                 }
 

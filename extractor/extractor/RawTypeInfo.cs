@@ -69,8 +69,10 @@ namespace extractor
                 this.baseClass = NameUtility.GetTypeIdentifier(T.BaseType);
             }
 
-            // fields
-            foreach (var field in T.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+            // fields - skip interface types as they cannot have instance fields
+            if (!T.IsInterface)
+            {
+                foreach (var field in T.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
             {
                 var fieldName = field.Name;
                 if (!TypeFilter.IsBannedField(field))
@@ -93,6 +95,7 @@ namespace extractor
                         Log.Warn($"Failed to reflect field '{fieldName}' in type '{this.fullName}': {ex.Message}");
                     }
                 }
+            }
             }
 
             // attributes
