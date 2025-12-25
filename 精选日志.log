@@ -1,108 +1,33 @@
-    <skillGains>
-      <Plants>2</Plants>
-      <Construction>2</Construction>
-      <Mining>2</Mining>
-      <Intellectual>-3</Intellectual>
-    </skillGains>
-  
-  [{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+[{
+	"resource": "/d:/RimworldProject/边缘赤潮/参考文档/植入体/Defs/ThingDefs_Implants.xml",
 	"owner": "_generated_diagnostic_collection_name_#1",
 	"severity": 8,
-	"message": "Undefined property \"Plants\"",
-	"startLineNumber": 11,
-	"startColumn": 7,
-	"endLineNumber": 11,
-	"endColumn": 25,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"Construction\"",
-	"startLineNumber": 12,
-	"startColumn": 7,
-	"endLineNumber": 12,
-	"endColumn": 37,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"Mining\"",
-	"startLineNumber": 13,
-	"startColumn": 7,
-	"endLineNumber": 13,
-	"endColumn": 25,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"Intellectual\"",
-	"startLineNumber": 14,
-	"startColumn": 7,
-	"endLineNumber": 14,
+	"message": "Unresolved reference \"BasicMechtech\"",
+	"startLineNumber": 28,
+	"startColumn": 25,
+	"endLineNumber": 28,
 	"endColumn": 38,
 	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+}]
+[{
+	"resource": "/d:/RimworldProject/边缘赤潮/参考文档/植入体/Defs/ThingDefs_Implants.xml",
 	"owner": "_generated_diagnostic_collection_name_#1",
 	"severity": 8,
-	"message": "Undefined property \"Social\"",
-	"startLineNumber": 33,
-	"startColumn": 7,
-	"endLineNumber": 33,
-	"endColumn": 25,
+	"message": "Unresolved reference \"SubcoreEncoder\"",
+	"startLineNumber": 31,
+	"startColumn": 13,
+	"endLineNumber": 31,
+	"endColumn": 27,
 	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+}]
+[{
+	"resource": "/d:/RimworldProject/边缘赤潮/参考文档/植入体/Defs/ThingDefs_Implants.xml",
 	"owner": "_generated_diagnostic_collection_name_#1",
 	"severity": 8,
-	"message": "Undefined property \"Construction\"",
-	"startLineNumber": 34,
-	"startColumn": 7,
-	"endLineNumber": 34,
-	"endColumn": 38,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"Mining\"",
-	"startLineNumber": 35,
-	"startColumn": 7,
-	"endLineNumber": 35,
-	"endColumn": 26,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"Plants\"",
-	"startLineNumber": 36,
-	"startColumn": 7,
-	"endLineNumber": 36,
-	"endColumn": 26,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"Construction\"",
-	"startLineNumber": 54,
-	"startColumn": 7,
-	"endLineNumber": 54,
-	"endColumn": 37,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"Plants\"",
-	"startLineNumber": 55,
-	"startColumn": 7,
-	"endLineNumber": 55,
-	"endColumn": 25,
+	"message": "Unresolved reference \"MechlinkImplant\"",
+	"startLineNumber": 43,
+	"startColumn": 29,
+	"endLineNumber": 43,
+	"endColumn": 44,
 	"origin": "extHost1"
 }]
