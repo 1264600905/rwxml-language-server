@@ -48,6 +48,13 @@ export class TypeInfoInjector {
   injectType(xmlNode: Element, typeInfo: TypeInfo, fieldInfo?: FieldInfo): void {
     console.assert(!!typeInfo, `typeInfo for xmlNode ${xmlNode.name} is null or undefined`)
 
+    if (typeInfo.isNullable()) {
+      const nullableType = typeInfo.getNullableType()
+      if (nullableType) {
+        return this.injectType(xmlNode, nullableType, fieldInfo)
+      }
+    }
+
     const overridedTypeInfo = this.getOverridedTypeInfo(xmlNode, typeInfo)
     if (overridedTypeInfo) {
       return this.injectType(xmlNode, overridedTypeInfo, fieldInfo)

@@ -240,6 +240,18 @@ export class TypeInfo {
     return this.fullName === 'UnityEngine.Color32'
   }
 
+  @cache({ type: CacheType.MEMO, scope: CacheScope.INSTANCE })
+  isNullable(): boolean {
+    return this.fullName.startsWith('System.Nullable`1') && this.genericArguments.length === 1
+  }
+
+  getNullableType(): TypeInfo | null {
+    if (this.isNullable()) {
+      return this.genericArguments[0]
+    }
+    return null
+  }
+
   /**
    * check this type is enum flag.
    * @see https://docs.microsoft.com/ko-kr/dotnet/api/system.flagsattribute?view=net-6.0
