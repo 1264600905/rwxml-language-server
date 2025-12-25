@@ -36,61 +36,10 @@ export class TypeInfoProvider implements Provider {
   private clearProgress: (() => void) | null = null
 
   async onTypeInfoRequest({ uris, version }: TypeInfoRequest): Promise<TypeInfoRequestResponse | ResponseError<Error>> {
-    this.log.info(`Received TypeInfo request for version: ${version}`)
+    this.log.info(`Received atomic TypeInfo extraction request for ${uris.length} items.`)
 
-    // 尝试从项目根目录加载 1.6 元数据作为保底
-    const localMetadataPath = 'D:/RimworldProject/rwxml-language-server-master/rimworld-defs-metadata-1.6.json';
-    
-    if (fs.existsSync(localMetadataPath)) {
-      this.log.info(`Found local metadata file at ${localMetadataPath}. Loading...`);
-      try {
-        const buffer = fs.readFileSync(localMetadataPath);
-        let content = "";
-        
-        // 健壮的编码处理
-        if (buffer.length >= 2 && buffer[0] === 0xFF && buffer[1] === 0xFE) {
-          // UTF-16 LE
-          content = buffer.toString('utf16le', 2);
-        } else if (buffer.length >= 3 && buffer[0] === 0xEF && buffer[1] === 0xBB && buffer[2] === 0xBF) {
-          // UTF-8 with BOM
-          content = buffer.toString('utf8', 3);
-        } else {
-          // Plain UTF-8
-          content = buffer.toString('utf8');
-        }
-        
-        // 移除可能存在的杂质字符
-        content = content.trim();
-        if (content.charCodeAt(0) === 0xFEFF) {
-          content = content.slice(1);
-        }
-
-        const data = JSON.parse(content);
-        this.log.info('Successfully loaded local metadata (1.6). skipping DLL extraction and version check.');
-        return { data };
-      } catch (e) {
-        this.log.error(`Critical error parsing local metadata JSON: ${e}`);
-        // 如果本地文件损坏，我们尝试继续执行正常的提取逻辑
-      }
-    }
-
-    const CoreDLLPath = this.pathStore.RimWorldCoreDLLPath
-    const semverVersion = this.parseVersion(version)
-    if (!semverVersion) {
-      const err = ono(`cannot parse version: ${version}`)
-      this.log.error(err)
-      return new ResponseError(1, err.message, err)
-    }
-
-    const isCoreDLLVersionCorrect = await this.checkCoreDLLVersion(CoreDLLPath, semverVersion)
-    if (!isCoreDLLVersionCorrect) {
-      const actualVersion = await this.getCoreDLLVersion(CoreDLLPath);
-      const err = ono(
-        `Core DLL version mismatch. expected: ${semverVersion}, actual: ${actualVersion}`
-      )
-      this.log.error(err)
-      // 如果版本不匹配，在开发阶段我们选择继续尝试提取，而不是直接返回错误
-      this.log.warn('Proceeding with extraction anyway despite version mismatch.');
+    if (uris.length === 0) {
+      return { data: [] }
     }
 
     if (!this.clearProgress) {
@@ -125,14 +74,34 @@ export class TypeInfoProvider implements Provider {
   }
 
   async extractTypeInfo(uris: string[]): Promise<unknown[] | Error> {
-    const dllPaths = uris.map((uri) => vscode.Uri.parse(uri).fsPath) // single .dll file or directory
+    const managedDirectory = this.pathStore.RimWorldManagedDirectory.toLowerCase()
+    const coreDLLPath = this.pathStore.RimWorldCoreDLLPath
+    
+    const dllPaths = uris
+      .map((uri) => vscode.Uri.parse(uri).fsPath)
+      .filter((path) => {
+        const lowerPath = path.toLowerCase()
+        // 过滤掉大部分 Managed 目录，但保留用户特别指定的路径
+        return !lowerPath.includes(managedDirectory) && !lowerPath.includes('managed')
+      })
 
-    const managedDirectory = this.pathStore.RimWorldManagedDirectory
+    // 关键修复：显式加入核心 DLL 和 UnityEngine，否则提取器会报错
+    if (fs.existsSync(coreDLLPath)) {
+      dllPaths.unshift(coreDLLPath)
+      
+      // 同时也尝试加入 UnityEngine.dll
+      const unityDLLPath = path.join(path.dirname(coreDLLPath), 'UnityEngine.dll')
+      if (fs.existsSync(unityDLLPath)) {
+        dllPaths.push(unityDLLPath)
+      }
+    }
 
-    this.log.debug('managed directory: ', managedDirectory)
-    dllPaths.push(managedDirectory)
+    if (dllPaths.length <= 1) { // 只有 Core DLL 或者什么都没有
+      this.log.info('No project-specific DLLs to extract. Skipping extractor.')
+      return []
+    }
 
-    this.log.debug(`extracting typeinfos from: ${jsonStr(dllPaths)}`)
+    this.log.info(`Extracting typeinfos from ${dllPaths.length} DLLs (including Core DLL).`)
     return await extractTypeInfos(...dllPaths)
   }
 

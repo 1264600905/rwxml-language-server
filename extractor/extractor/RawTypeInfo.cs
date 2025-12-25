@@ -75,16 +75,23 @@ namespace extractor
                 var fieldName = field.Name;
                 if (!TypeFilter.IsBannedField(field))
                 {
-                    var rawFieldInfo = new RawFieldInfo(field);
-
-                    // base field is overrided by new keyword with same name.
-                    // https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/new-modifier
-                    if (fields.ContainsKey(rawFieldInfo.name))
+                    try
                     {
-                        fields.Remove(rawFieldInfo.name);
-                    }
+                        var rawFieldInfo = new RawFieldInfo(field);
 
-                    fields.Add(rawFieldInfo.name, rawFieldInfo);
+                        // base field is overrided by new keyword with same name.
+                        // https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/new-modifier
+                        if (fields.ContainsKey(rawFieldInfo.name))
+                        {
+                            fields.Remove(rawFieldInfo.name);
+                        }
+
+                        fields.Add(rawFieldInfo.name, rawFieldInfo);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warn($"Failed to reflect field '{fieldName}' in type '{this.fullName}': {ex.Message}");
+                    }
                 }
             }
 

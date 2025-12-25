@@ -1,111 +1,29 @@
-[{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"workerClass\"",
-	"startLineNumber": 5,
-	"startColumn": 5,
-	"endLineNumber": 5,
-	"endColumn": 60,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"canHaveMultipleLayoutsInRoom\"",
-	"startLineNumber": 6,
-	"startColumn": 5,
-	"endLineNumber": 6,
-	"endColumn": 70,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"corridorShapes\"",
-	"startLineNumber": 7,
-	"startColumn": 5,
-	"endLineNumber": 7,
-	"endColumn": 66,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"terrainDef\"",
-	"startLineNumber": 8,
-	"startColumn": 5,
-	"endLineNumber": 8,
-	"endColumn": 45,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"defaultAffordanceTerrainDef\"",
-	"startLineNumber": 9,
-	"startColumn": 5,
-	"endLineNumber": 9,
-	"endColumn": 79,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"doorStuffDef\"",
-	"startLineNumber": 10,
-	"startColumn": 5,
-	"endLineNumber": 10,
-	"endColumn": 39,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"wallDef\"",
-	"startLineNumber": 11,
-	"startColumn": 5,
-	"endLineNumber": 11,
-	"endColumn": 51,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"exteriorDoorDef\"",
-	"startLineNumber": 12,
-	"startColumn": 5,
-	"endLineNumber": 12,
-	"endColumn": 56,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"roomToExteriorDoorRatio\"",
-	"startLineNumber": 13,
-	"startColumn": 5,
-	"endLineNumber": 13,
-	"endColumn": 60,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"surroundingScatterRange\"",
-	"startLineNumber": 14,
-	"startColumn": 5,
-	"endLineNumber": 14,
-	"endColumn": 59,
-	"origin": "extHost1"
-},{
-	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
-	"owner": "_generated_diagnostic_collection_name_#1",
-	"severity": 8,
-	"message": "Undefined property \"surroundingTerrainDef\"",
-	"startLineNumber": 15,
-	"startColumn": 5,
-	"endLineNumber": 15,
-	"endColumn": 67,
-	"origin": "extHost1"
-}]
+[error]	[undefined]:	Extractor Stderr: extractor.Log Warn 83 - Extractor [WARN]: System.TypeLoadException: 接口中的非抽象、非 .cctor 方法。
+extensionHostProcess.js:218
+   在 System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+extensionHostProcess.js:218
+   在 System.Signature..ctor(IRuntimeFieldInfo fieldHandle, RuntimeType declaringType)
+extensionHostProcess.js:218
+   在 System.Reflection.RtFieldInfo.get_FieldType()
+extensionHostProcess.js:218
+   在 extractor.RawFieldInfo..ctor(FieldInfo fieldInfo) 位置 D:\RimworldProject\rwxml-language-server-master\extractor\extractor\RawFieldInfo.cs:行号 48
+extensionHostProcess.js:218
+   在 extractor.RawTypeInfo..ctor(Type T) 位置 D:\RimworldProject\rwxml-language-server-master\extractor\extractor\RawTypeInfo.cs:行号 78
+extensionHostProcess.js:218
+   在 extractor.Extractor.TryNewRawTypeInfo(Type T, RawTypeInfo& value, Exception& ex) 位置 D:\RimworldProject\rwxml-language-server-master\extractor\extractor\Extractor.cs:行号 230
+extensionHostProcess.js:218
+[error]	[undefined]:	Extractor Stderr: extractor.Log Info 73 - Extractor [INFO]: Completed extracting data, data count: 22669
+extensionHostProcess.js:218
+[error]	[undefined]:	Extractor Stderr: extractor.Log Info 73 - Extractor [INFO]: serialized Object string length: 44324749
+extensionHostProcess.js:218
+[debug]	[undefined]:	Connecting to localhost server, port: 12384
+extensionHostProcess.js:218
+[error]	[undefined]:	Extractor Stderr: extractor.Log Info 73 - Extractor [INFO]: serialized Object string length: 44324749
+extensionHostProcess.js:218
+[debug]	[undefined]:	Connecting to localhost server, port: 13493
+extensionHostProcess.js:218
+2
+[error]	[undefined]:	Extractor Stderr: extractor.Log Info 73 - Extractor [INFO]: Extraction completed!
+extensionHostProcess.js:218
+2
+[info]	[CachedTypeInfoProvider]:	Total types: 47066 (Base: 24454, Static: 0, Dynamic: 22612).
