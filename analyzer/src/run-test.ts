@@ -1,13 +1,13 @@
-import { TypeInfoLoader } from './src/rimworld-types/typeInfoLoader';
-import { TypeInfoInjector } from './src/rimworld-types/typeInfoInjector';
-import { parse } from './src/parser';
+import { TypeInfoLoader } from './rimworld-types/typeInfoLoader';
+import { TypeInfoInjector } from './rimworld-types/typeInfoInjector';
+import { parse } from './parser';
 import * as fs from 'fs';
 import * as path from 'path';
 import fg from 'fast-glob';
 import { performance } from 'perf_hooks';
 
 // 配置路径
-const METADATA_PATH = path.resolve(__dirname, '../rimworld-defs-metadata-1.6.json');
+const METADATA_PATH = path.resolve(__dirname, '../../rimworld-defs-metadata-1.6.json');
 // 注意：这里硬编码了你的路径，运行时请确保该路径存在
 const TARGET_DIR = 'H:/SteamLibrary/steamapps/common/RimWorld/Data/Anomaly'; 
 
@@ -19,7 +19,23 @@ async function main() {
     }
 
     // 1. 加载元数据
-    const rawMetadata = JSON.parse(fs.readFileSync(METADATA_PATH, 'utf-8'));
+    const buffer = fs.readFileSync(METADATA_PATH);
+    let content = "";
+    if (buffer[0] === 0xff && buffer[1] === 0xfe) {
+        content = buffer.toString('utf16le');
+    } else {
+        content = buffer.toString('utf-8');
+    }
+    
+    // 移除任何可能的 BOM (UTF-8 或 UTF-16)
+    if (content.charCodeAt(0) === 0xFEFF) {
+        content = content.slice(1);
+    }
+    
+    // 移除可能的空白字符
+    content = content.trim();
+    
+    const rawMetadata = JSON.parse(content);
     // 注意：TypeInfoLoader.load 返回的是 TypeInfoMap
     const typeInfoMap = TypeInfoLoader.load(rawMetadata);
     console.log(`Metadata loaded successfully.`);
