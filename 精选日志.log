@@ -1,68 +1,108 @@
-rejected promise not handled within 1 second: Error: Language client is not ready yet
-extensionHostProcess.js:218
-stack trace: Error: Language client is not ready yet
-extensionHostProcess.js:218
-	at LanguageClient.sendRequest (d:\RimworldProject\rwxml-language-server-master\vsc-extension\dist\index.js:2:1225255)
-extensionHostProcess.js:218
-	at _updateDecoration (d:\RimworldProject\rwxml-language-server-master\vsc-extension\dist\index.js:2:697698)
-extensionHostProcess.js:218
-	at Timeout._onTimeout (d:\RimworldProject\rwxml-language-server-master\vsc-extension\dist\index.js:2:698206)
-extensionHostProcess.js:218
-	at listOnTimeout (node:internal/timers:588:17)
-extensionHostProcess.js:218
-	at process.processTimers (node:internal/timers:523:7)
-
-  Debugger listening on ws://127.0.0.1:6009/8e5dbd87-ba40-4a1d-adc7-76d7b6f959c2
-For help, see: https://nodejs.org/en/docs/inspector
-log level changed to info
-[info]:	hello world! initializing @rwxml-language-server/server ...
-[info]	[DiagnosticsProvider]:	DiagnosticsProvider initialized with 6 contributors.
-[info]:	initialization completed!
-(node:12112) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
-(Use `Code --trace-warnings ...` to show where the warning was created)
-[info]	[About]:	about file changed.
-[warn]	[DefManager]	[default]:	cannot find type Def in typeInfoMap. something isn't right.
-[warn]	[DefManager]	[1.5]:	cannot find type Def in typeInfoMap. something isn't right.
-[warn]	[DefManager]	[1.6]:	cannot find type Def in typeInfoMap. something isn't right.
-[info]	[ProjectManager]:	supportedVersions added: [
-  "default",
-  "1.5",
-  "1.6"
-]
-[info]	[ProjectManager]:	supportedVersions deleted: []
-[info]	[Project]	[default]:	reloading project... reason: dll is changed.
-[info]	[Project]	[default]:	loading project resources...
-[info]	[Project]	[default]:	clear project...
-[info]	[Project]	[1.5]:	reloading project... reason: dll is changed.
-[info]	[Project]	[1.5]:	loading project resources...
-[info]	[Project]	[1.5]:	clear project...
-[info]	[Project]	[1.6]:	reloading project... reason: dll is changed.
-[info]	[Project]	[1.6]:	loading project resources...
-[info]	[Project]	[1.6]:	clear project...
-[info]	[Project]	[default]:	project cleared.
-uncaughtException: TypeError: genArg0.isEnumerable is not a function
-[info]	[Project]	[1.5]:	project cleared.
-uncaughtException: TypeError: genArg0.isEnumerable is not a function
-[info]	[Project]	[1.6]:	project cleared.
-uncaughtException: TypeError: genArg0.isEnumerable is not a function
-[Info  - 22:39:34] Connection to server got closed. Server will restart.
-Debugger listening on ws://127.0.0.1:6009/6c2000a1-301d-4716-b9fc-72f7ca127b19
-For help, see: https://nodejs.org/en/docs/inspector
-log level changed to info
-[info]:	hello world! initializing @rwxml-language-server/server ...
-[info]	[DiagnosticsProvider]:	DiagnosticsProvider initialized with 6 contributors.
-[info]:	initialization completed!
-(node:22912) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
-(Use `Code --trace-warnings ...` to show where the warning was created)
-
-
-[info]	[undefined]:	registering commands...
-[info]	[undefined]:	initializing Language Server...
-[info]	[undefined]:	initializing resourceProviders...
-[error]	[ProjectWatcher]:	cannot create 1 Mod from directory file:///h:/SteamLibrary/steamapps/common/RimWorld/Mods
-[error]	[ProjectWatcher]:	about directory not found in file:///h:/SteamLibrary/steamapps/common/RimWorld/Mods/新建文件夹
-[info]	[undefined]:	checking Runtime TypeInfo Extractor available...
-[info]	[undefined]:	register lsp features...
-[info]	[undefined]:	initialize Project Watcher...
-[info]	[ProjectWatcher]:	Waiting for language client to be ready...
-[info]	[undefined]:	initialization completed.
+    <skillGains>
+      <Plants>2</Plants>
+      <Construction>2</Construction>
+      <Mining>2</Mining>
+      <Intellectual>-3</Intellectual>
+    </skillGains>
+  
+  [{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Plants\"",
+	"startLineNumber": 11,
+	"startColumn": 7,
+	"endLineNumber": 11,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Construction\"",
+	"startLineNumber": 12,
+	"startColumn": 7,
+	"endLineNumber": 12,
+	"endColumn": 37,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Mining\"",
+	"startLineNumber": 13,
+	"startColumn": 7,
+	"endLineNumber": 13,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Intellectual\"",
+	"startLineNumber": 14,
+	"startColumn": 7,
+	"endLineNumber": 14,
+	"endColumn": 38,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Social\"",
+	"startLineNumber": 33,
+	"startColumn": 7,
+	"endLineNumber": 33,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Construction\"",
+	"startLineNumber": 34,
+	"startColumn": 7,
+	"endLineNumber": 34,
+	"endColumn": 38,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Mining\"",
+	"startLineNumber": 35,
+	"startColumn": 7,
+	"endLineNumber": 35,
+	"endColumn": 26,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Plants\"",
+	"startLineNumber": 36,
+	"startColumn": 7,
+	"endLineNumber": 36,
+	"endColumn": 26,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Construction\"",
+	"startLineNumber": 54,
+	"startColumn": 7,
+	"endLineNumber": 54,
+	"endColumn": 37,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Medieval_Child.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"Plants\"",
+	"startLineNumber": 55,
+	"startColumn": 7,
+	"endLineNumber": 55,
+	"endColumn": 25,
+	"origin": "extHost1"
+}]

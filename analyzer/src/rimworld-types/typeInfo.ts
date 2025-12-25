@@ -179,7 +179,8 @@ export class TypeInfo {
    */
   @cache({ type: CacheType.MEMO, scope: CacheScope.INSTANCE })
   isDictionary(): boolean {
-    return !!this.isImplementingInterface('System.Collections.IDictionary')
+    return !!this.isImplementingInterface('System.Collections.IDictionary') || 
+           !!this.isImplementingInterface('System.Collections.Generic.IDictionary`2')
   }
 
   @cache({ type: CacheType.MEMO, scope: CacheScope.INSTANCE })

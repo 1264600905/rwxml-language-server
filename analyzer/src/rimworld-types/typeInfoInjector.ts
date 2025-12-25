@@ -59,8 +59,23 @@ export class TypeInfoInjector {
       const enumerableType = typeInfo.getEnumerableType()
       if (enumerableType) {
         if (enumerableType.customLoader()) {
+          xmlNode.ChildElementNodes.forEach((childNode) => {
+            if (childNode.tagName !== 'li') {
+              this.injectType(childNode, enumerableType)
+            }
+          })
           return xmlNode.ChildElementNodes.forEach((childNode) => this.injectCustomLoaderType(childNode, enumerableType))
         }
+
+        const isMap = typeInfo.isMapStructured()
+        const [, valueType] = isMap ? (typeInfo.getMapGenTypes() ?? []) : []
+
+        xmlNode.ChildElementNodes.forEach((childNode) => {
+          if (childNode.tagName !== 'li') {
+            // 如果是 Map，注入值的类型；否则（如 skillGains, forcedTraits）注入列表项自身的类型作为兜底
+            this.injectType(childNode, valueType ?? enumerableType)
+          }
+        })
 
         return injectable.ChildElementNodes
           .filter(node => node.tagName === 'li')
