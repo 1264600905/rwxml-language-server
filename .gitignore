@@ -1,0 +1,22 @@
+.DS_Store
+**/dist
+
+node_modules
+
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+**/.pnpm-debug.log
+
+# .NET / Visual Studio
+bin/
+obj/
+*.bak
+*.user
+*.suo
+*.metadata-1.6.json
