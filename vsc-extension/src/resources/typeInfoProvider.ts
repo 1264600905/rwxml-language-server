@@ -1,6 +1,7 @@
 import { spawnSync } from 'child_process'
 import { getFileProperties } from 'get-file-properties'
 import ono from 'ono'
+import * as path from 'path'
 import * as semver from 'semver'
 import * as tsyringe from 'tsyringe'
 import * as vscode from 'vscode'
@@ -13,6 +14,7 @@ import { extractTypeInfos } from '../typeInfo'
 import jsonStr from '../utils/json'
 import { createProgress } from '../utils/progress'
 import { Provider } from './provider'
+import * as fs from 'fs'
 
 @tsyringe.injectable()
 export class TypeInfoProvider implements Provider {
@@ -34,7 +36,43 @@ export class TypeInfoProvider implements Provider {
   private clearProgress: (() => void) | null = null
 
   async onTypeInfoRequest({ uris, version }: TypeInfoRequest): Promise<TypeInfoRequestResponse | ResponseError<Error>> {
-    this.log.info('received TypeInfo request.')
+    this.log.info(`Received TypeInfo request for version: ${version}`)
+
+    // 尝试从项目根目录加载 1.6 元数据作为保底
+    const localMetadataPath = 'D:/RimworldProject/rwxml-language-server-master/rimworld-defs-metadata-1.6.json';
+    
+    if (fs.existsSync(localMetadataPath)) {
+      this.log.info(`Found local metadata file at ${localMetadataPath}. Loading...`);
+      try {
+        const buffer = fs.readFileSync(localMetadataPath);
+        let content = "";
+        
+        // 健壮的编码处理
+        if (buffer.length >= 2 && buffer[0] === 0xFF && buffer[1] === 0xFE) {
+          // UTF-16 LE
+          content = buffer.toString('utf16le', 2);
+        } else if (buffer.length >= 3 && buffer[0] === 0xEF && buffer[1] === 0xBB && buffer[2] === 0xBF) {
+          // UTF-8 with BOM
+          content = buffer.toString('utf8', 3);
+        } else {
+          // Plain UTF-8
+          content = buffer.toString('utf8');
+        }
+        
+        // 移除可能存在的杂质字符
+        content = content.trim();
+        if (content.charCodeAt(0) === 0xFEFF) {
+          content = content.slice(1);
+        }
+
+        const data = JSON.parse(content);
+        this.log.info('Successfully loaded local metadata (1.6). skipping DLL extraction and version check.');
+        return { data };
+      } catch (e) {
+        this.log.error(`Critical error parsing local metadata JSON: ${e}`);
+        // 如果本地文件损坏，我们尝试继续执行正常的提取逻辑
+      }
+    }
 
     const CoreDLLPath = this.pathStore.RimWorldCoreDLLPath
     const semverVersion = this.parseVersion(version)
@@ -46,17 +84,19 @@ export class TypeInfoProvider implements Provider {
 
     const isCoreDLLVersionCorrect = await this.checkCoreDLLVersion(CoreDLLPath, semverVersion)
     if (!isCoreDLLVersionCorrect) {
+      const actualVersion = await this.getCoreDLLVersion(CoreDLLPath);
       const err = ono(
-        `Core DLL version mismatch. expected: ${semverVersion}, actual: ${await this.getCoreDLLVersion(CoreDLLPath)}`
+        `Core DLL version mismatch. expected: ${semverVersion}, actual: ${actualVersion}`
       )
       this.log.error(err)
-      return new ResponseError(2, err.message, err)
+      // 如果版本不匹配，在开发阶段我们选择继续尝试提取，而不是直接返回错误
+      this.log.warn('Proceeding with extraction anyway despite version mismatch.');
     }
 
     if (!this.clearProgress) {
       const { resolve } = await createProgress({
         location: vscode.ProgressLocation.Notification,
-        title: 'RWXML: reading DLLs...',
+        title: 'RWXML: reading DLLs...', 
       })
       this.clearProgress = resolve
     }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Music Blocker (屏蔽音乐)</name>
+    <author>trigger</author>
+    <supportedVersions>
+        <li>1.5</li>
+        <li>1.6</li>
+    </supportedVersions>
+    <packageId>trigger.musicblocker</packageId>
+    <modDependencies>
+        <li>
+            <packageId>zal.musicmanager</packageId>
+            <displayName>Music Manager (Continued)</displayName>
+            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2233334637</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+    <loadAfter>
+        <li>zal.musicmanager</li>
+    </loadAfter>
+    <description>
+[h1]Music Blocker - Music Manager Extension[/h1]
+
+This is a specialized extension for [b]Music Manager (Continued)[/b]. It fills the gap by allowing you to disable specific tracks, giving you full control over your colony's playlist.
+
+[h2]Features[/h2]
+[list]
+[*] [b]Integrated Block Toggles[/b]: Adds a checkbox column directly to the Music Manager's song list. Check to play, uncheck to block.
+[*] [b]Drag-Select Support[/b]: Quickly toggle multiple songs by clicking and dragging your mouse, just like in a spreadsheet.
+[*] [b]Persistent Settings[/b]: Your blocking preferences are saved permanently and will persist even after restarting the game.
+[*] [b]Seamless Integration[/b]: Blends perfectly into the original UI without adding cluttered setting menus.
+[/list]
+
+[h2]Installation[/h2]
+This mod requires [b]Music Manager (Continued)[/b]. Make sure to load this mod [b]AFTER[/b] the original mod.
+
+[hr]
+
+[h1]P-music 屏蔽音乐扩展[/h1]
+
+这是一个为 [b]Music Manager (Continued)[/b] 模组量身定制的扩展补丁。它填补了原模组无法禁用特定音乐的遗憾，让你可以完全掌控自己的播放列表。
+
+[h2]核心功能[/h2]
+[list]
+[*] [b]直观的屏蔽开关[/b]：在 Music Manager 的播放列表右侧直接添加了一列复选框，勾选即播放，取消即屏蔽。
+[*] [b]支持拖拽选择[/b]：你可以像在 Excel 中一样，点击并拖拽鼠标快速勾选或取消多首歌曲，整理超长列表不再痛苦。
+[*] [b]持久化保存[/b]：你的屏蔽设置会自动保存，即使重启游戏也会依然生效。
+[*] [b]无缝集成[/b]：完美融入原模组 UI，不产生额外的设置菜单，保持界面整洁。
+[/list]
+
+[h2]安装说明[/h2]
+本模组依赖于 [b]Music Manager (Continued)[/b]，请确保已安装并将其加载在原模组之后。
+    </description>
+</ModMetaData>

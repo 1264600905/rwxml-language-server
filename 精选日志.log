@@ -1,36 +1,68 @@
-D:\RimworldProject\rwxml-language-server-master\analyzer>npx ts-node run-test.ts
-D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:859
-    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
-           ^
-TSError: ⨯ Unable to compile TypeScript:
-run-test.ts:25:55 - error TS2339: Property 'getAllTypeInfos' does not exist on type 'TypeInfoMap'.
+rejected promise not handled within 1 second: Error: Language client is not ready yet
+extensionHostProcess.js:218
+stack trace: Error: Language client is not ready yet
+extensionHostProcess.js:218
+	at LanguageClient.sendRequest (d:\RimworldProject\rwxml-language-server-master\vsc-extension\dist\index.js:2:1225255)
+extensionHostProcess.js:218
+	at _updateDecoration (d:\RimworldProject\rwxml-language-server-master\vsc-extension\dist\index.js:2:697698)
+extensionHostProcess.js:218
+	at Timeout._onTimeout (d:\RimworldProject\rwxml-language-server-master\vsc-extension\dist\index.js:2:698206)
+extensionHostProcess.js:218
+	at listOnTimeout (node:internal/timers:588:17)
+extensionHostProcess.js:218
+	at process.processTimers (node:internal/timers:523:7)
 
-25     console.log(`Metadata loaded. Found ${typeInfoMap.getAllTypeInfos().length} types.`);
-                                                         ~~~~~~~~~~~~~~~
-run-test.ts:39:51 - error TS18046: 'e' is of type 'unknown'.
+  Debugger listening on ws://127.0.0.1:6009/8e5dbd87-ba40-4a1d-adc7-76d7b6f959c2
+For help, see: https://nodejs.org/en/docs/inspector
+log level changed to info
+[info]:	hello world! initializing @rwxml-language-server/server ...
+[info]	[DiagnosticsProvider]:	DiagnosticsProvider initialized with 6 contributors.
+[info]:	initialization completed!
+(node:12112) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `Code --trace-warnings ...` to show where the warning was created)
+[info]	[About]:	about file changed.
+[warn]	[DefManager]	[default]:	cannot find type Def in typeInfoMap. something isn't right.
+[warn]	[DefManager]	[1.5]:	cannot find type Def in typeInfoMap. something isn't right.
+[warn]	[DefManager]	[1.6]:	cannot find type Def in typeInfoMap. something isn't right.
+[info]	[ProjectManager]:	supportedVersions added: [
+  "default",
+  "1.5",
+  "1.6"
+]
+[info]	[ProjectManager]:	supportedVersions deleted: []
+[info]	[Project]	[default]:	reloading project... reason: dll is changed.
+[info]	[Project]	[default]:	loading project resources...
+[info]	[Project]	[default]:	clear project...
+[info]	[Project]	[1.5]:	reloading project... reason: dll is changed.
+[info]	[Project]	[1.5]:	loading project resources...
+[info]	[Project]	[1.5]:	clear project...
+[info]	[Project]	[1.6]:	reloading project... reason: dll is changed.
+[info]	[Project]	[1.6]:	loading project resources...
+[info]	[Project]	[1.6]:	clear project...
+[info]	[Project]	[default]:	project cleared.
+uncaughtException: TypeError: genArg0.isEnumerable is not a function
+[info]	[Project]	[1.5]:	project cleared.
+uncaughtException: TypeError: genArg0.isEnumerable is not a function
+[info]	[Project]	[1.6]:	project cleared.
+uncaughtException: TypeError: genArg0.isEnumerable is not a function
+[Info  - 22:39:34] Connection to server got closed. Server will restart.
+Debugger listening on ws://127.0.0.1:6009/6c2000a1-301d-4716-b9fc-72f7ca127b19
+For help, see: https://nodejs.org/en/docs/inspector
+log level changed to info
+[info]:	hello world! initializing @rwxml-language-server/server ...
+[info]	[DiagnosticsProvider]:	DiagnosticsProvider initialized with 6 contributors.
+[info]:	initialization completed!
+(node:22912) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `Code --trace-warnings ...` to show where the warning was created)
 
-39             console.log('Cannot list directory:', e.message);
-                                                     ~
-run-test.ts:30:54 - error TS1005: ',' expected.
 
-30     const xmlPattern = `${TARGET_DIR.replace(/\/g, '/') }/**/*.xml`;
-                                                        ~~~~~~~~~~~~~~~
-run-test.ts:30:69 - error TS1002: Unterminated string literal.
-
-30     const xmlPattern = `${TARGET_DIR.replace(/\/g, '/') }/**/*.xml`;
-
-run-test.ts:31:5 - error TS1005: ',' expected.
-
-31     const xmlFiles = await fg(xmlPattern, { dot: true });
-       ~~~~~
-
-    at createTSError (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:859:12)    at reportTSError (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:863:19)    at getOutput (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1077:36)
-    at Object.compile (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1433:41)
-    at Module.m._compile (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1617:30)
-    at node:internal/modules/cjs/loader:1893:10
-    at Object.require.extensions.<computed> [as .ts] (D:\RimworldProject\rwxml-language-server-master\analyzer\node_modules\ts-node\src\index.ts:1621:12)
-    at Module.load (node:internal/modules/cjs/loader:1481:32)
-    at Module._load (node:internal/modules/cjs/loader:1300:12)
-    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
-  diagnosticCodes: [ 2339, 18046, 1005, 1002, 1005 ]
-}
+[info]	[undefined]:	registering commands...
+[info]	[undefined]:	initializing Language Server...
+[info]	[undefined]:	initializing resourceProviders...
+[error]	[ProjectWatcher]:	cannot create 1 Mod from directory file:///h:/SteamLibrary/steamapps/common/RimWorld/Mods
+[error]	[ProjectWatcher]:	about directory not found in file:///h:/SteamLibrary/steamapps/common/RimWorld/Mods/新建文件夹
+[info]	[undefined]:	checking Runtime TypeInfo Extractor available...
+[info]	[undefined]:	register lsp features...
+[info]	[undefined]:	initialize Project Watcher...
+[info]	[ProjectWatcher]:	Waiting for language client to be ready...
+[info]	[undefined]:	initialization completed.

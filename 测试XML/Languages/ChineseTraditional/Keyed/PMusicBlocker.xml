@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PMB_SettingsCategory>P-music 屏蔽音樂</PMB_SettingsCategory>
+  <PMB_Enabled>启用</PMB_Enabled>
+  <PMB_DebugLogging>开启調試日志</PMB_DebugLogging>
+  <PMB_ResetToDefault>恢復預設設置</PMB_ResetToDefault>
+  <PMB_ColumnEnabledTooltip>启用/禁用此歌曲播放。
+取消勾選以屏蔽此歌曲。</PMB_ColumnEnabledTooltip>
+</LanguageData>

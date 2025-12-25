@@ -29,6 +29,7 @@ export class DiagnosticsProvider implements Provider {
     private readonly configuration: Configuration,
     @tsyringe.injectAll(DiagnosticsContributor.token) private readonly contributors: DiagnosticsContributor[]
   ) {
+    this.log.info(`DiagnosticsProvider initialized with ${contributors.length} contributors.`);
     projectManager.events.on('onProjectInitialized', this.onProjectInitialized.bind(this))
     configuration.events.on('onConfigurationChanged', this.onConfigurationChanged.bind(this))
   }
@@ -88,22 +89,11 @@ export class DiagnosticsProvider implements Provider {
       throw new Error('this.connection is undefined. check DiagnosticsProvider is initialized with init()')
     }
 
-    const projectReady = project.state === 'ready'
-    const uriValid = document.uri !== ''
-    const dependencyFile = project.resourceStore.isDependencyFile(document.uri)
     const RootIsDefsNode = getRootElement(document)?.tagName === 'Defs'
 
-    if (!(projectReady && uriValid && !dependencyFile && RootIsDefsNode)) {
-      return
-    }
+    this.log.info(`Checking diagnostics for ${document.uri}. RootIsDefs: ${RootIsDefsNode}, State: ${project.state}`);
 
-    const shouldDiagnosis =
-      document.uri !== '' &&
-      !project.resourceStore.isDependencyFile(document.uri) &&
-      getRootElement(document)?.tagName === 'Defs' &&
-      project.state === 'ready'
-
-    if (!shouldDiagnosis) {
+    if (!(project.state === 'ready' && document.uri !== '' && RootIsDefsNode)) {
       return
     }
 

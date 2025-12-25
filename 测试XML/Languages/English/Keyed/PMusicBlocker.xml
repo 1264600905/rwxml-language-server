@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PMB_SettingsCategory>P-music Block Music</PMB_SettingsCategory>
+  <PMB_Enabled>Enabled</PMB_Enabled>
+  <PMB_DebugLogging>Debug Logging</PMB_DebugLogging>
+  <PMB_ResetToDefault>Reset to Default</PMB_ResetToDefault>
+  <PMB_ColumnEnabledTooltip>Enable/Disable this song from playing.
+Uncheck to block this song.</PMB_ColumnEnabledTooltip>
+</LanguageData>

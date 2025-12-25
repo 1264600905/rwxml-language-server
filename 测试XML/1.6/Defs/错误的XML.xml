@@ -10,8 +10,9 @@
 		<defName>Miho_Headgear</defName>
 		<label>Miho Headgear</label>
 		<parent>Miho_Apparel</parent>
-    <book>5555</book>
-	</ThingCategoryDef>
+    <book>试试56</book> 
+	<label>sdd2</label>
+	</ThingCategoryDef>   
 
 
   <ThingDef ParentName="HatMakeableBase">

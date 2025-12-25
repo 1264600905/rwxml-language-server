@@ -2,7 +2,9 @@ import { Def, Document, Element, Node, TypedElement } from '@rwxml/analyzer'
 import { AsEnumerable } from 'linq-es2015'
 import * as tsyringe from 'tsyringe'
 import * as ls from 'vscode-languageserver'
+import winston from 'winston'
 import { Project } from '../../project'
+import defaultLogger, { withClass } from '../../log'
 import { RangeConverter } from '../../utils/rangeConverter'
 import { getRootElement } from '../utils'
 import { DiagnosticsContributor } from './contributor'
@@ -12,6 +14,11 @@ import { DiagnosticsContributor } from './contributor'
  */
 @tsyringe.injectable()
 export class Property implements DiagnosticsContributor {
+  private log = winston.createLogger({
+    format: winston.format.combine(withClass(Property)),
+    transports: [defaultLogger()],
+  })
+
   constructor(private readonly rangeConverter: RangeConverter) {}
 
   getDiagnostics(_: Project, document: Document): { uri: string; diagnostics: ls.Diagnostic[] } {
@@ -20,16 +27,13 @@ export class Property implements DiagnosticsContributor {
       return { uri: document.uri, diagnostics: [] }
     }
 
-    const elements = AsEnumerable(root.ChildElementNodes)
-      .Select((x) => this.collectNonInjectedNodes(x))
-      .Where((x) => x !== null)
-      .Cast<Element[]>()
-      .SelectMany((x) => x)
-      .ToArray()
+    const elements = this.collectNonInjectedNodes(root)
 
-    if (!elements) {
+    if (!elements || elements.length === 0) {
       return { uri: document.uri, diagnostics: [] }
     }
+
+    this.log.info(`[${document.uri}] found ${elements.length} non-injected nodes (errors).`)
 
     const diagnostics = AsEnumerable(elements)
       .Select((node) => this.diagnosisInvalidField(node))
@@ -56,7 +60,7 @@ export class Property implements DiagnosticsContributor {
     ]
   }
 
-  private collectNonInjectedNodes(node: Node): Element[] | null {
+  private collectNonInjectedNodes(node: Node): Element[] {
     const result: Element[] = []
     if (node instanceof Element) {
       this.collectNonInjectedNodesInternal(node, result)
@@ -66,20 +70,16 @@ export class Property implements DiagnosticsContributor {
   }
 
   private collectNonInjectedNodesInternal(node: Element, out: Element[]): void {
-    const isDefLike =
-      node instanceof Def || (node.parent && node.parent instanceof Element && node.parent.tagName === 'Defs')
-    if (isDefLike) {
+    const typedNode = node as any
+
+    // 检查是否有 typeInfo。注意：Defs 根节点本身没有 typeInfo 是正常的。
+    if (node.name !== 'Defs' && !typedNode.typeInfo) {
+      out.push(node)
       return
     }
 
     for (const childNode of node.ChildElementNodes) {
-      if (childNode instanceof Element) {
-        out.push(childNode)
-      }
-
-      if (childNode instanceof TypedElement) {
-        this.collectNonInjectedNodesInternal(childNode, out)
-      }
+      this.collectNonInjectedNodesInternal(childNode, out)
     }
   }
 }

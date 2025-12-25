@@ -1,6 +1,6 @@
 import { injectable } from 'tsyringe'
 import vscode, { Uri, workspace } from 'vscode'
-import { LanguageClient } from 'vscode-languageclient'
+import { LanguageClient, State } from 'vscode-languageclient'
 import * as winston from 'winston'
 import { ProjectFileAdded, ProjectFileChanged, ProjectFileDeleted } from './events'
 import { className, log, logFormat } from './log'
@@ -26,11 +26,13 @@ export class ProjectWatcher {
 
   constructor(private readonly client: LanguageClient) {}
 
-  start(): void {
+  async start(): Promise<void> {
     if (this.isWatching) {
       return
     }
 
+    this.log.info('Waiting for language client to be ready...')
+    
     this.fileSystemWatcher.onDidCreate(this.onDidcreate.bind(this))
     this.fileSystemWatcher.onDidChange(this.onDidChange.bind(this))
     this.fileSystemWatcher.onDidDelete(this.onDidDelete.bind(this))
@@ -46,22 +48,31 @@ export class ProjectWatcher {
   private async initLoading(): Promise<void> {
     const uris = await vscode.workspace.findFiles(globPattern)
     this.log.debug(`sending initial load files. count: ${uris.length}`)
-    this.log.silly(`initial load files: ${jsonStr(uris.map((uri) => decodeURIComponent(uri.toString())))}`)
-
+    
     for (const uri of uris) {
-      this.client.sendNotification(ProjectFileAdded, { uri: uri.toString() })
+      try {
+        this.client.sendNotification(ProjectFileAdded, { uri: uri.toString() })
+      } catch (e) {
+        this.log.error(`Failed to send initial file ${uri}: ${e}`)
+      }
     }
   }
 
   private async onDidcreate(uri: Uri): Promise<void> {
-    this.client.sendNotification(ProjectFileAdded, { uri: uri.toString() })
+    try {
+      this.client.sendNotification(ProjectFileAdded, { uri: uri.toString() })
+    } catch (e) {}
   }
 
   private async onDidChange(uri: Uri): Promise<void> {
-    this.client.sendNotification(ProjectFileChanged, { uri: uri.toString() })
+    try {
+      this.client.sendNotification(ProjectFileChanged, { uri: uri.toString() })
+    } catch (e) {}
   }
 
   private async onDidDelete(uri: Uri): Promise<void> {
-    this.client.sendNotification(ProjectFileDeleted, { uri: uri.toString() })
+    try {
+      this.client.sendNotification(ProjectFileDeleted, { uri: uri.toString() })
+    } catch (e) {}
   }
 }

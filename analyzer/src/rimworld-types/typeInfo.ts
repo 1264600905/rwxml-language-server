@@ -100,7 +100,7 @@ export class TypeInfo {
   isDef(): boolean {
     if (this.fullName === 'Verse.Def') {
       return true
-    } else if (this.baseClass) {
+    } else if (this.baseClass && typeof this.baseClass.isDef === 'function') {
       return this.baseClass.isDef()
     } else {
       return false
@@ -133,7 +133,7 @@ export class TypeInfo {
       const genArg0 = this.genericArguments[0]
 
       // why not checking with List or Array? -> check QuestNode sitePartsTags
-      if (genArg0.isEnumerable()) {
+      if (genArg0 && typeof genArg0.isEnumerable === 'function' && genArg0.isEnumerable()) {
         return true
       }
     }
@@ -269,7 +269,7 @@ export class TypeInfo {
       return this.fields[name]
     }
 
-    if (inherited && this.baseClass) {
+    if (inherited && this.baseClass && typeof this.baseClass.getField === 'function') {
       const field = this.baseClass.getField(name, inherited)
       if (field) {
         return field
@@ -402,7 +402,11 @@ export class TypeInfo {
       if (this.genericArguments.length === 1) {
         const genArg0 = this.genericArguments[0]
 
-        return genArg0.getEnumerableType() ?? genArg0
+        if (genArg0 && typeof genArg0.getEnumerableType === 'function') {
+          return genArg0.getEnumerableType() ?? genArg0
+        } else {
+          return genArg0
+        }
       }
 
       // unknown case
