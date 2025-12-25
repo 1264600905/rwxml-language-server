@@ -97,7 +97,7 @@ export class DiagnosticsProvider implements Provider {
       return
     }
 
-    const diagnosticsArr = this.diagnoseDocument(project, document, dirtyNodes)
+    const diagnosticsArr = await this.diagnoseDocument(project, document, dirtyNodes)
 
     for (const dig of diagnosticsArr) {
       if (dig.uri === document.uri) {
@@ -116,13 +116,14 @@ export class DiagnosticsProvider implements Provider {
     this.connection?.sendDiagnostics({ uri, diagnostics: [] })
   }
 
-  private diagnoseDocument(
+  private async diagnoseDocument(
     project: Project,
     document: Document,
     dirtyNodes: (Def | TypedElement)[]
-  ): { uri: string; diagnostics: ls.Diagnostic[] }[] {
-    return AsEnumerable(this.contributors)
-      .Select((contributor) => contributor.getDiagnostics(project, document, dirtyNodes))
+  ): Promise<{ uri: string; diagnostics: ls.Diagnostic[] }[]> {
+    const results = await Promise.all(this.contributors.map((contributor) => contributor.getDiagnostics(project, document, dirtyNodes)))
+
+    return AsEnumerable(results)
       .GroupBy((x) => x.uri)
       .Select((x) => ({
         uri: x.key,

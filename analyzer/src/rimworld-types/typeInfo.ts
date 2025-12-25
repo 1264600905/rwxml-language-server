@@ -286,10 +286,23 @@ export class TypeInfo {
       return this.fields[name]
     }
 
-    if (inherited && this.baseClass && typeof this.baseClass.getField === 'function') {
+    if (inherited && this.baseClass instanceof TypeInfo) {
       const field = this.baseClass.getField(name, inherited)
       if (field) {
         return field
+      }
+    }
+
+    // Heuristic fallback for QuestGen and other wrapper types:
+    // If field not found in self or base, check generic arguments.
+    if (this.isGeneric) {
+      for (const genArg of this.genericArguments) {
+        if (genArg instanceof TypeInfo) {
+          const field = genArg.getField(name, inherited)
+          if (field) {
+            return field
+          }
+        }
       }
     }
 

@@ -4,6 +4,7 @@ import * as tsyringe from 'tsyringe'
 import * as ls from 'vscode-languageserver'
 import winston from 'winston'
 import { Project } from '../../project'
+import { Configuration } from '../../configuration'
 import defaultLogger, { withClass } from '../../log'
 import { RangeConverter } from '../../utils/rangeConverter'
 import { getRootElement } from '../utils'
@@ -19,13 +20,18 @@ export class Property implements DiagnosticsContributor {
     transports: [defaultLogger()],
   })
 
-  constructor(private readonly rangeConverter: RangeConverter) {}
+  constructor(
+    private readonly rangeConverter: RangeConverter,
+    private readonly configuration: Configuration
+  ) {}
 
-  getDiagnostics(_: Project, document: Document): { uri: string; diagnostics: ls.Diagnostic[] } {
+  async getDiagnostics(project: Project, document: Document): Promise<{ uri: string; diagnostics: ls.Diagnostic[] }> {
     const root = getRootElement(document)
     if (!root) {
       return { uri: document.uri, diagnostics: [] }
     }
+
+    const liEnabled = (await this.configuration.get<any>({ section: 'rwxml.diagnostics.liError' }))?.enabled ?? false
 
     const elements = this.collectNonInjectedNodes(root)
 
@@ -36,7 +42,7 @@ export class Property implements DiagnosticsContributor {
     this.log.info(`[${document.uri}] found ${elements.length} non-injected nodes (errors).`)
 
     const diagnostics = AsEnumerable(elements)
-      .Select((node) => this.diagnosisInvalidField(node))
+      .Select((node) => this.diagnosisInvalidField(node, liEnabled))
       .Where((res) => res !== null)
       .Cast<ls.Diagnostic[]>()
       .SelectMany((x) => x)
@@ -45,17 +51,24 @@ export class Property implements DiagnosticsContributor {
     return { uri: document.uri, diagnostics }
   }
 
-  private diagnosisInvalidField(node: Element): ls.Diagnostic[] | null {
+  private diagnosisInvalidField(node: Element, liEnabled: boolean): ls.Diagnostic[] | null {
+    if (node.tagName === 'li' && !liEnabled) {
+      return null
+    }
+
     const range = this.rangeConverter.toLanguageServerRange(node.nodeRange, node.document.uri)
     if (!range) {
       return null
     }
 
+    const severity =
+      node.tagName === 'li' ? ls.DiagnosticSeverity.Warning : ls.DiagnosticSeverity.Error
+
     return [
       {
         message: `Undefined property "${node.tagName}"`,
         range,
-        severity: ls.DiagnosticSeverity.Error,
+        severity,
       },
     ]
   }

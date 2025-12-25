@@ -96,6 +96,12 @@
             "scope": "machine-overridable",
             "default": true,
             "markdownDescription": "controll context-based code diagnostics."
+          },
+          "rwxml.diagnostics.liError.enabled": {
+            "type": "boolean",
+            "scope": "machine-overridable",
+            "default": false,
+            "markdownDescription": "Show diagnostics for 'li' properties that cannot be identified. (Default is false to reduce noise)"
           }
         }
       }

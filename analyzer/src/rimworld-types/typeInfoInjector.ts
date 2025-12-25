@@ -120,6 +120,12 @@ export class TypeInfoInjector {
       } else if (childNode.tagName === 'li') {
         // heuristic: for li nodes that doesn't matched any field, inject parent type.
         this.injectType(childNode, typeInfo)
+      } else if (childNode.tagName === 'thing' && typeInfo.isListStructured()) {
+        // special case for <thing> in lists
+        const enumType = typeInfo.getEnumerableType()
+        if (enumType) {
+          this.injectType(childNode, enumType)
+        }
       }
     })
   }

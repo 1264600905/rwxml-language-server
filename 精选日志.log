@@ -1,43 +1,421 @@
-Claude code extension is now deactivated
-extensionHostProcess.js:218
-Error: Trying to add a disposable to a DisposableStore that has already been disposed of. The added object will be leaked!
-extensionHostProcess.js:218
-	at LM.add (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:1691)
-extensionHostProcess.js:218
-	at y4.D (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:2301)
-extensionHostProcess.js:218
-	at y4.getEnvironmentVariableCollection (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:58615)
-extensionHostProcess.js:218
-	at get environmentVariableCollection (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:14790)
-extensionHostProcess.js:218
-	at vue.stop (c:\Users\liu\.vscode\extensions\iflow-cli.iflow-cli-vscode-ide-companion-0.2.9\dist\extension.cjs:1506:10744)
-extensionHostProcess.js:218
-	at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-extensionHostProcess.js:218
-	at async Object.LAi (c:\Users\liu\.vscode\extensions\iflow-cli.iflow-cli-vscode-ide-companion-0.2.9\dist\extension.cjs:1506:16789)
-extensionHostProcess.js:218
-	at async Promise.all (index 13)
-extensionHostProcess.js:218
-	at async HX.$ (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:10014)
-extensionHostProcess.js:218
-Error: Trying to add a disposable to a DisposableStore that has already been disposed of. The added object will be leaked!
-extensionHostProcess.js:218
-	at LM.add (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:1691)
-extensionHostProcess.js:218
-	at y4.D (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:2301)
-extensionHostProcess.js:218
-	at y4.$ (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:59062)
-extensionHostProcess.js:218
-	at y4.getEnvironmentVariableCollection (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:58630)
-extensionHostProcess.js:218
-	at get environmentVariableCollection (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:14790)
-extensionHostProcess.js:218
-	at vue.stop (c:\Users\liu\.vscode\extensions\iflow-cli.iflow-cli-vscode-ide-companion-0.2.9\dist\extension.cjs:1506:10744)
-extensionHostProcess.js:218
-	at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-extensionHostProcess.js:218
-	at async Object.LAi (c:\Users\liu\.vscode\extensions\iflow-cli.iflow-cli-vscode-ide-companion-0.2.9\dist\extension.cjs:1506:16789)
-extensionHostProcess.js:218
-	at async Promise.all (index 13)
-extensionHostProcess.js:218
-	at async HX.$ (file:///c:/IDE/Microsoft%20VS%20Code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:10014)
+[{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 43,
+	"startColumn": 13,
+	"endLineNumber": 43,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 56,
+	"startColumn": 13,
+	"endLineNumber": 56,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 69,
+	"startColumn": 13,
+	"endLineNumber": 69,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 83,
+	"startColumn": 13,
+	"endLineNumber": 83,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 96,
+	"startColumn": 13,
+	"endLineNumber": 96,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 110,
+	"startColumn": 13,
+	"endLineNumber": 110,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 147,
+	"startColumn": 13,
+	"endLineNumber": 147,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 160,
+	"startColumn": 13,
+	"endLineNumber": 160,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 173,
+	"startColumn": 13,
+	"endLineNumber": 173,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 187,
+	"startColumn": 13,
+	"endLineNumber": 187,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 200,
+	"startColumn": 13,
+	"endLineNumber": 200,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 212,
+	"startColumn": 13,
+	"endLineNumber": 212,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 227,
+	"startColumn": 13,
+	"endLineNumber": 227,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 257,
+	"startColumn": 13,
+	"endLineNumber": 257,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 270,
+	"startColumn": 13,
+	"endLineNumber": 270,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 283,
+	"startColumn": 13,
+	"endLineNumber": 283,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 296,
+	"startColumn": 13,
+	"endLineNumber": 296,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 311,
+	"startColumn": 13,
+	"endLineNumber": 311,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 326,
+	"startColumn": 13,
+	"endLineNumber": 326,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 341,
+	"startColumn": 13,
+	"endLineNumber": 341,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Biotech/Defs/BossgroupDefs/Bossgroups.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"thing\"",
+	"startLineNumber": 356,
+	"startColumn": 13,
+	"endLineNumber": 356,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Core/Defs/ThingDefs_Buildings/Buildings_Exotic.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Unknown enum value [\n  \"2\"\n]",
+	"startLineNumber": 73,
+	"startColumn": 21,
+	"endLineNumber": 73,
+	"endColumn": 22,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Odyssey/Defs/LayoutDefs/Layouts_OrbitalPlatform.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"StructureStructureLayoutDef\"",
+	"startLineNumber": 4,
+	"startColumn": 3,
+	"endLineNumber": 16,
+	"endColumn": 33,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Hospitality/Script_Hospitality_Root_Animals.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"points\"",
+	"startLineNumber": 155,
+	"startColumn": 19,
+	"endLineNumber": 161,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Hospitality/Script_Hospitality_Root_Joiners.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"points\"",
+	"startLineNumber": 197,
+	"startColumn": 19,
+	"endLineNumber": 201,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Hospitality/Script_Hospitality_Root_Prisoners.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"points\"",
+	"startLineNumber": 128,
+	"startColumn": 19,
+	"endLineNumber": 132,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Scripts_ProblemCausers.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 66,
+	"startColumn": 23,
+	"endLineNumber": 66,
+	"endColumn": 54,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Scripts_ProblemCausers.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 69,
+	"startColumn": 23,
+	"endLineNumber": 69,
+	"endColumn": 41,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Scripts_ProblemCausers.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 86,
+	"startColumn": 23,
+	"endLineNumber": 86,
+	"endColumn": 54,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Scripts_ProblemCausers.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 89,
+	"startColumn": 23,
+	"endLineNumber": 89,
+	"endColumn": 67,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 76,
+	"startColumn": 17,
+	"endLineNumber": 76,
+	"endColumn": 45,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 79,
+	"startColumn": 17,
+	"endLineNumber": 79,
+	"endColumn": 52,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 82,
+	"startColumn": 17,
+	"endLineNumber": 82,
+	"endColumn": 52,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"chance\"",
+	"startLineNumber": 83,
+	"startColumn": 17,
+	"endLineNumber": 83,
+	"endColumn": 38,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 86,
+	"startColumn": 17,
+	"endLineNumber": 86,
+	"endColumn": 52,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"chance\"",
+	"startLineNumber": 87,
+	"startColumn": 17,
+	"endLineNumber": 87,
+	"endColumn": 38,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 98,
+	"startColumn": 19,
+	"endLineNumber": 98,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 101,
+	"startColumn": 19,
+	"endLineNumber": 101,
+	"endColumn": 54,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 104,
+	"startColumn": 19,
+	"endLineNumber": 104,
+	"endColumn": 54,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"chance\"",
+	"startLineNumber": 105,
+	"startColumn": 19,
+	"endLineNumber": 105,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 115,
+	"startColumn": 23,
+	"endLineNumber": 115,
+	"endColumn": 51,
+	"origin": "extHost1"
+},{
+	"resource": "/h:/SteamLibrary/steamapps/common/RimWorld/Data/Royalty/Defs/QuestScriptDefs/Utility/Scripts_Utility_Threats.xml",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"severity": 8,
+	"message": "Undefined property \"tag\"",
+	"startLineNumber": 118,
+	"startColumn": 23,
+	"endLineNumber": 118,
+	"endColumn": 66,
+	"origin": "extHost1"
+}]
