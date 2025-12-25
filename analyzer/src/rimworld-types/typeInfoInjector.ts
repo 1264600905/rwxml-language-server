@@ -55,6 +55,13 @@ export class TypeInfoInjector {
       }
     }
 
+    if (typeInfo.fullName.startsWith('RimWorld.QuestGen.SlateRef`1') && typeInfo.genericArguments.length > 0) {
+      const slateRefType = typeInfo.genericArguments[0]
+      if (slateRefType) {
+        return this.injectType(xmlNode, slateRefType, fieldInfo)
+      }
+    }
+
     const overridedTypeInfo = this.getOverridedTypeInfo(xmlNode, typeInfo)
     if (overridedTypeInfo) {
       return this.injectType(xmlNode, overridedTypeInfo, fieldInfo)
@@ -110,6 +117,9 @@ export class TypeInfoInjector {
 
       if (fieldInfo) {
         this.injectType(childNode, fieldInfo.fieldType, fieldInfo)
+      } else if (childNode.tagName === 'li') {
+        // heuristic: for li nodes that doesn't matched any field, inject parent type.
+        this.injectType(childNode, typeInfo)
       }
     })
   }

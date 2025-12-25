@@ -21,6 +21,7 @@ const rimworldNamespaces = [
 
 export class TypeInfoMap {
   private typeMap: Map<TypeIdentifier, TypeInfo> = new Map()
+  private classNameMap: Map<string, TypeInfo[]> = new Map()
 
   /** raw data used for building typeInfoMap. read-only */
   rawData: any = undefined
@@ -28,6 +29,15 @@ export class TypeInfoMap {
   addTypeInfo(typeInfo: TypeInfo): void {
     this.checkTypeAlreadyExists(typeInfo)
     this.typeMap.set(typeInfo.fullName, typeInfo)
+
+    // index by className for fast lookup
+    const lowerName = typeInfo.className.toLowerCase()
+    let list = this.classNameMap.get(lowerName)
+    if (!list) {
+      list = []
+      this.classNameMap.set(lowerName, list)
+    }
+    list.push(typeInfo)
   }
 
   addTypeInfos(...typeInfos: TypeInfo[]): void {
@@ -50,27 +60,21 @@ export class TypeInfoMap {
     return this.getAllNodes().filter((type) => type.className.startsWith('Verb_'))
   }
 
-  getTypeInfoByName(id: DefType | TypeIdentifier | null | undefined): TypeInfo | undefined {
-    if (!id) {
-      return undefined
+  getTypeInfoByName(name: string): TypeInfo | null {
+    // 1. exact match (fullName)
+    const exactMatch = this.typeMap.get(name)
+    if (exactMatch) {
+      return exactMatch
     }
 
-    let typeInfo = this.typeMap.get(id)
-
-    if (!typeInfo) {
-      if (!isFullName(id)) {
-        for (const ns of rimworldNamespaces) {
-          const fullName = `${ns}.${id}`
-          typeInfo = this.typeMap.get(fullName)
-          if (typeInfo) {
-            this.typeMap.set(id, typeInfo)
-            break
-          }
-        }
-      }
+    // 2. lookup by className (case-insensitive)
+    const list = this.classNameMap.get(name.toLowerCase())
+    if (list && list.length > 0) {
+      // return the one that is most likely intended (e.g. shortest fullName or just the first one)
+      return list[0]
     }
 
-    return typeInfo
+    return null
   }
 
   getTypeInfoFullName(id: TypeIdentifier): TypeInfo | undefined {

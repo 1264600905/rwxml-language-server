@@ -171,7 +171,11 @@ export class TypeInfo {
    */
   @cache({ type: CacheType.MEMO, scope: CacheScope.INSTANCE })
   isList(): boolean {
-    return !!this.isImplementingInterface('System.Collections.IList')
+    return (
+      this.isImplementingInterface('System.Collections.IList') ||
+      this.getInterfaces().some((iface) => iface.fullName.startsWith('System.Collections.Generic.IReadOnlyList`1')) ||
+      this.getInterfaces().some((iface) => iface.fullName.startsWith('System.Collections.Generic.IReadOnlyCollection`1'))
+    )
   }
 
   /**
