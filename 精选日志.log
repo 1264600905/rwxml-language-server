@@ -1,5 +1,7 @@
-[info]:	hello world! initializing @rwxml-language-server/server ...
-此处省略100行文件读取日志
-[info]	[ClientFileEventListener]:	file loaded successfully: file:///h%3A/SteamLibrary/steamapps/workshop/content/294100/1235181370/Textures/UI/Commands/Smol/grid_close.png
-[info]	[ClientFileEventListener]:	file added notification received: file:///h%3A/SteamLibrary/steamapps/workshop/content/294100/1235181370/1.6/Assemblies/Merthsoft.DesignatorShapes.dll
-[info]	[ClientFileEventListener]:	file loaded successfully: file:///h%3A/SteamLibrary/steamapps/workshop/content/294100/1235181370/1.6/Assemblies/Merthsoft.DesignatorShapes.dll
+[info]	[ClientFileEventListener]:	file added notification received: file:///h%3A/SteamLibrary/steamapps/workshop/content/294100/1235181370/About/preview.png
+[info]	[ProjectManager]:	[ProjectManager] onProjectFileAdded called. file: file:///h%3A/SteamLibrary/steamapps/workshop/content/294100/1235181370/About/preview.png, projects count: 0
+[warn]	[ProjectManager]:	[ProjectManager] No projects available! supportedVersions: 
+[info]	[ClientFileEventListener]:	file loaded successfully: file:///h%3A/SteamLibrary/steamapps/workshop/content/294100/1235181370/About/preview.png
+[info]	[ProjectManager]:	[ProjectManager] onProjectFileAdded called. file: file:///h%3A/SteamLibrary/steamapps/workshop/content/294100/1235181370/About/About.xml, projects count: 2
+
+我只搜索到这个，问题是

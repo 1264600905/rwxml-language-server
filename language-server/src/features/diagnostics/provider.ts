@@ -89,6 +89,13 @@ export class DiagnosticsProvider implements Provider {
       throw new Error('this.connection is undefined. check DiagnosticsProvider is initialized with init()')
     }
 
+    // 过滤掉来自 RimWorld 本体 Data 目录的XML文件
+    // 路径格式：file:///h:/SteamLibrary/steamapps/common/RimWorld/Data/...
+    const uri = document.uri.toLowerCase()
+    if (uri.includes('/rimworld/data/') || uri.includes('\\rimworld\\data\\')) {
+      return // 跳过本体Data目录的诊断
+    }
+
     const RootIsDefsNode = getRootElement(document)?.tagName === 'Defs'
 
     this.log.info(`Checking diagnostics for ${document.uri}. RootIsDefs: ${RootIsDefsNode}, State: ${project.state}`);
