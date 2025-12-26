@@ -60,6 +60,11 @@ export class About {
     return this._packageId
   }
   get supportedVersions(): string[] {
+    // 如果 supportedVersions 为空，返回默认值（至少包含 'default' 和最新版本）
+    if (this._supportedVersions.length === 0) {
+      this.log.warn('About.supportedVersions is empty, returning default versions.')
+      return ['default', '1.6'] // 默认支持 1.6 版本
+    }
     return [...this._supportedVersions]
   }
   get description(): string {
