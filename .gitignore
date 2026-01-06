@@ -20,3 +20,6 @@ obj/
 *.user
 *.suo
 *.metadata-1.6.json
+
+# VSCode extension package
+*.vsix
