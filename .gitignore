@@ -23,3 +23,6 @@ obj/
 
 # VSCode extension package
 *.vsix
+
+# Large metadata files
+rimworld-defs-metadata-1.6.json
