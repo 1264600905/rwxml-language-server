@@ -115,7 +115,7 @@
   "contributors": [
     "madeline"
   ],
-  "license": "ISC",
+  "license": "Apache-2.0",
   "engines": {
     "vscode": "^1.96.0"
   },
